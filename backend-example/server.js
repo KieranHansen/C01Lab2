@@ -185,7 +185,7 @@ app.get("/getAllNotes", express.json(), async (req, res) => {
       const collection = db.collection(COLLECTIONS.notes);
       const data = await collection.find({
         username: decoded.username,
-      });
+      }).toArray();
       res.json({ response: data });
     });
   } catch (error) {
